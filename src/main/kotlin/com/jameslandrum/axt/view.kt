@@ -11,8 +11,8 @@ infix fun View.hideIf(condition:Boolean?) { this.visibility = if (!(condition?:f
 /**
  * Infix function to show or hide multiple views
  */
-infix fun Boolean.shows(views:List<View>) {  views.forEach { if (this) it.visibility = View.VISIBLE } }
-infix fun Boolean.hides(views:List<View>) { views.forEach { if (this) it.visibility = View.GONE } }
+infix fun Boolean.shows(views:List<View>) { views.forEach { it showIf this } }
+infix fun Boolean.hides(views:List<View>) { views.forEach { it hideIf this } }
 
 /**
  * Infix function to enable or disable views based on the given parameter
